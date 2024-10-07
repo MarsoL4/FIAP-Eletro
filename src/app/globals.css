@@ -2,26 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+  /*@apply -> Permite que colocque condigurações normais aqui*/
+  @apply flex flex-col min-h-screen
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.links li a{
+  @apply text-white text-xl
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+table, th, td{
+  @apply border border-spacing-0 border-indigo-950 text-center
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+th, td{
+  @apply p-1
 }
+
