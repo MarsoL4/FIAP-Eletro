@@ -1,5 +1,7 @@
+'use client'
+
 import { TipoProduto } from "../../../types" 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useState } from "react";
  
@@ -48,7 +50,7 @@ export default function CadastroPrudutos(){
         <main>
             <h1>Cadastro de Produtos</h1>
             <p>Aqui inserimos um novo produto assim que chega na loja.</p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="idnome">Nome</label>
                     <input type="text" name="nome" value={produto.nome}
