@@ -1,5 +1,4 @@
 import { TipoProduto } from "@/types";
-import { constants } from "buffer";
 import { promises as fs} from "fs";
 import { NextResponse } from "next/server";
 
