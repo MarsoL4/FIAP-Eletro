@@ -18,8 +18,8 @@ export default function produto({params}:{params:{id:number}}){
     },[]) /*[]-> indica que só ocorrerá apos a pagina ser carregada*/
 
     return(
-        <main>
-            <h2>Produto</h2>
+        <main className="grow">
+            <h2 className="text-3xl text-center text-indigo-600 mb-4">Produto</h2>
 
             <div>
                 <p>Id: {produto?.id} {/*Coloca o ? pois há a possibilidade desse valor não receber nada*/}</p>
