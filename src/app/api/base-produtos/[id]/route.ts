@@ -43,6 +43,6 @@ export async function DELETE(request: Request, { params }: { params: { id: numbe
         }
 
     }catch(error){
-        return NextResponse.json({ msg: 'Erro ao deletar o produto: ' + error })        
+        return NextResponse.json({ msg: 'Erro ao deletar o produto: ' + error }, { status: 500 })        
     }
 }

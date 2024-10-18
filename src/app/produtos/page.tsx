@@ -1,9 +1,12 @@
 "use client"
 import { TipoProduto } from "@/types"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function Produtos(){
+
+    const navigate = useRouter()
 
     const [lista, setLista] = useState<TipoProduto[]>([])
 
@@ -16,6 +19,21 @@ export default function Produtos(){
         }
         chamadaApi()
     },[])
+
+    const handleDelete = async (id: number)=>{
+        try{
+            const response = await fetch(`http://localhost:3000/api/base-produtos/${id}`, {method: "DELETE"})
+            if(response.ok){
+                window.location.reload()
+            }else{
+                alert("Erro ao deletar o produto")
+                navigate.push('/produtos')
+            }
+        }catch(error){
+            console.log("Falha ao apagar registro.", error);
+        }
+
+    }
 
     return(
         <main className="grow p-5">
@@ -34,7 +52,10 @@ export default function Produtos(){
                                 <td>{p.nome}</td>
                                 <td>{p.preco}</td>
                                 <td>{p.estoque}</td>
-                                <td><Link className="font-bold text-red-600" href={`/produtos/produto/${p.id}`}>Editar</Link></td>
+                                <td><Link className="font-bold text-red-600" href={`/produtos/produto/${p.id}`}>Editar</Link>
+                                {" | "}
+                                <button onClick={()=>handleDelete(p.id)}>Excluir</button>
+                                </td>
                             </tr>
                         ))
                     }
