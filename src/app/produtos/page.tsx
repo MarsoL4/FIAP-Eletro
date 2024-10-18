@@ -47,6 +47,7 @@ export default function Produtos(){
 
     }
 
+    //Arrumar botoes que nao estao funcionando
     return(
         <main className="grow p-5">
             <h1 className="text-center text-4xl font-bold text-indigo-600 mb-4">Produtos</h1>
