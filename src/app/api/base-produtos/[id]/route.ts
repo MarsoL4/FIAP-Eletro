@@ -28,3 +28,8 @@ export async function PUT(request: Request, { params }: { params: { id: number }
         return NextResponse.json({ msg: 'Erro ao atualizar o produto: ' + error }, { status: 500 });
     }
 }
+
+export async function DELETE(request: Request, { params }: { params: { id: number } }) {
+    const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
+
+}
