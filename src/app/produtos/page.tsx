@@ -78,15 +78,15 @@ export default function Produtos(){
                     </tr>
                 </tfoot>
             </table>
-            <Modal>
-                    <div>
+            <Modal open= {open} onClose= {()=>setOpen(false)}>
+                    <div className="text-center w-56">
                         <FaTrashAlt size={56} className="mx-auto text-red-500"/>
                         <h3 className="text-lg font-black text-gray-800">Excluir Produto?</h3>
                         <p className="text-gray-500 text-sm">Você tem certeza que deseja excluir o produto?</p>
                     </div>
                     <div className="flex gap-4">
-                        <button onClick={()=> handleDelete(idDelete)}>Excluir</button>
-                        <button onClick={()=> setOpen(false)}>Cancelar</button>
+                        <button className="btn btn-danger w-full" onClick={()=> handleDelete(idDelete)}>Excluir</button>
+                        <button className="btn btn-light w-full" onClick={()=> setOpen(false)}>Cancelar</button>
 
                     </div>
             </Modal>

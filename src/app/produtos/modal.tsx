@@ -1,6 +1,7 @@
+import { ModalProps } from '@/types'
 import React from 'react'
 
-export default function Modal() {
+export default function Modal({open, onClose, children}: ModalProps) {
 
 
   return (

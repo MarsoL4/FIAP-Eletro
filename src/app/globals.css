@@ -27,3 +27,7 @@ th, td{
   @apply bg-white text-gray-500
 }
 
+.btn.btn-danger{
+  @apply bg-red-600 text-white shadow-red-400/40
+}
+
