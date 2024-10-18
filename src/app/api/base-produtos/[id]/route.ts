@@ -21,7 +21,7 @@ export async function PUT(request: Request, { params }: { params: { id: number }
             produtos.splice(index, 1, body);
             await fs.writeFile(process.cwd() + '/src/data/base.json', JSON.stringify(produtos, null, 2));
             return NextResponse.json({ msg: 'Produto atualizado com sucesso' });
-        } else {
+        } else{
             return NextResponse.json({ msg: 'Produto não encontrado' }, { status: 404 });
         }
     } catch (error) {
@@ -32,7 +32,17 @@ export async function PUT(request: Request, { params }: { params: { id: number }
 export async function DELETE(request: Request, { params }: { params: { id: number } }) {
     try{
         const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-    }catch{
-        
+        const produtos: TipoProduto[] = JSON.parse(file);
+        const index =  produtos.findIndex(p => p.id == params.id);
+        if(index != -1){
+            produtos.splice(index, 1);
+            await fs.writeFile(process.cwd() + '/src/data/base.json', JSON.stringify(produtos, null))
+            return NextResponse.json({ msg: 'Produto deletado com sucesso' });
+        } else{
+            return NextResponse.json({ msg: 'Produto não foi deletado' }, { status: 404 });
+        }
+
+    }catch(error){
+        return NextResponse.json({ msg: 'Erro ao deletar o produto: ' + error })        
     }
 }
