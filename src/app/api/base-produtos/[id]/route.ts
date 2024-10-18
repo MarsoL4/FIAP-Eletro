@@ -30,6 +30,9 @@ export async function PUT(request: Request, { params }: { params: { id: number }
 }
 
 export async function DELETE(request: Request, { params }: { params: { id: number } }) {
-    const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-
+    try{
+        const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
+    }catch{
+        
+    }
 }
