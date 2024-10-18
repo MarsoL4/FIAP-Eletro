@@ -8,6 +8,14 @@ export default function Produtos(){
 
     const navigate = useRouter()
 
+    const [open, setOpen] = useState(false)
+    const [idDelete, setIdDelete] = useState(0)
+
+    const idModal = (id: number)=>{
+        setOpen(true)
+        setIdDelete(id)
+    }
+
     const [lista, setLista] = useState<TipoProduto[]>([])
 
     useEffect(()=>{
